@@ -12,9 +12,8 @@ struct ContentView: View {
 
     var body: some View {
             TimerView()
-                .environmentObject(timerViewModel)
                 .navigationTitle("Timer App")
-        
+                .environmentObject(timerViewModel)
     }
 }
 

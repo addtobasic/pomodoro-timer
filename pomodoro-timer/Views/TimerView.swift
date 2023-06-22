@@ -13,33 +13,37 @@ struct TimerView: View {
     var body: some View {
         VStack {
             Text(timerViewModel.timeString)
-                .font(.title)
+                .font(.largeTitle)
                 .padding()
-                .background(Color.green)
                 .foregroundColor(.white)
-                .cornerRadius(10)
+                .background(Color.blue)
             
-            Button(action: {
-                timerViewModel.startTimer(with: 60)
-            }) {
-                Text("Start")
-                    .font(.title)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            
-            
-            Button(action: {
-                timerViewModel.stopTimer()
-            }) {
-                Text("Stop")
-                    .font(.title)
-                    .padding()
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            HStack {
+                Button(action: {
+                    if timerViewModel.isTimerRunning {
+                        timerViewModel.stopTimer()
+                    }
+                    else if timerViewModel.isRestart {
+                        timerViewModel.restartTimer()
+                    }
+                    else {
+                        timerViewModel.startTimer(with: 25*60)
+                    }
+                }) {
+                    Image(systemName: timerViewModel.isTimerRunning ? "stop.circle" : "play.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.green)
+                }
+                
+                Button(action: {
+                    timerViewModel.resetTimer()
+                }) {
+                    Image(systemName: "arrow.counterclockwise.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.red)
+                }
             }
         }
     }

@@ -9,6 +9,8 @@ import SwiftUI
 
 class TimerViewModel: ObservableObject {
     @Published var timeString: String = ""
+    @Published var isTimerRunning: Bool = false
+    @Published var isRestart: Bool = false
     private var timerModel = TimerModel(timeRemaining: 0, timer: nil)
 
     func startTimer(with duration: Int) {
@@ -21,11 +23,26 @@ class TimerViewModel: ObservableObject {
                 self.stopTimer()
             }
         }
+        
+        isTimerRunning = true
     }
 
     func stopTimer() {
         timerModel.timer?.invalidate()
         timerModel.timer = nil
+        
+        isTimerRunning = false
+        isRestart = true
+    }
+    
+    func restartTimer() {
+        startTimer(with: timerModel.timeRemaining)
+    }
+    
+    func resetTimer() {
+        stopTimer()
+        timeString = ""
+        isRestart = false
     }
 
     private func getTimeString(from seconds: Int) -> String {
