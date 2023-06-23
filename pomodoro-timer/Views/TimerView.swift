@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct TimerView: View {
-    @StateObject var timerViewModel = TimerViewModel()
+    @StateObject var timerViewModel: TimerViewModel
+    let duration: Int
+    
+    init(duration: Int) {
+        self.duration = duration
+        _timerViewModel = StateObject(wrappedValue: TimerViewModel(duration: duration))
+    }
 
     var body: some View {
         VStack {
@@ -27,7 +33,7 @@ struct TimerView: View {
                         timerViewModel.restartTimer()
                     }
                     else {
-                        timerViewModel.startTimer(with: 25*60)
+                        timerViewModel.startTimer()
                     }
                 }) {
                     Image(systemName: timerViewModel.isTimerRunning ? "stop.circle" : "play.circle")

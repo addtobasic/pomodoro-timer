@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var timerViewModel = TimerViewModel()
 
     var body: some View {
-            TimerView()
+        HStack{
+            TimerView(duration: 1500)
                 .navigationTitle("Timer App")
-                .environmentObject(timerViewModel)
+        }
     }
 }
 

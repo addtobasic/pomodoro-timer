@@ -8,13 +8,19 @@
 import SwiftUI
 
 class TimerViewModel: ObservableObject {
-    @Published var timeString: String = "25:00"
+    @Published var timeString: String = ""
     @Published var isTimerRunning: Bool = false
     @Published var isRestart: Bool = false
-    private var timerModel = TimerModel(timeRemaining: 0, timer: nil)
+    private var timerModel: TimerModel
+    private var initialDuration: Int
+    
+    init(duration: Int) {
+        initialDuration = duration
+        timerModel = TimerModel(timeRemaining: duration, timer: nil)
+        timeString = getTimeString(from: duration)
+    }
 
-    func startTimer(with duration: Int) {
-        timerModel.timeRemaining = duration
+    func startTimer() {
         timerModel.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             if self.timerModel.timeRemaining > 0 {
                 self.timerModel.timeRemaining -= 1
@@ -36,12 +42,13 @@ class TimerViewModel: ObservableObject {
     }
     
     func restartTimer() {
-        startTimer(with: timerModel.timeRemaining)
+        startTimer()
     }
     
     func resetTimer() {
         stopTimer()
-        timeString = ""
+        timerModel.timeRemaining = initialDuration
+        timeString = getTimeString(from: initialDuration)
         isRestart = false
     }
 
