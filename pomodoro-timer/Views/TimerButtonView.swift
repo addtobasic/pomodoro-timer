@@ -23,7 +23,7 @@ struct TimerButtonView: View {
                     timerViewModel.startTimer()
                 }
             }) {
-                Image(systemName: timerViewModel.isTimerRunning ? "stop.circle" : "play.circle")
+                Image(systemName: timerViewModel.isTimerRunning ? "pause.circle" : "play.circle")
                     .resizable()
                     .frame(width: 50, height: 50)
                     .foregroundColor(Theme.mainColor)
