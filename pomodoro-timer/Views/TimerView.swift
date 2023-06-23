@@ -15,8 +15,8 @@ struct TimerView: View {
             Text(timerViewModel.timeString)
                 .font(.largeTitle)
                 .padding()
-                .foregroundColor(.white)
-                .background(Color.blue)
+                .foregroundColor(Theme.mainColor)
+                .background(Theme.backgroundColor)
             
             HStack {
                 Button(action: {
@@ -33,7 +33,7 @@ struct TimerView: View {
                     Image(systemName: timerViewModel.isTimerRunning ? "stop.circle" : "play.circle")
                         .resizable()
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.green)
+                        .foregroundColor(Theme.mainColor)
                 }
                 
                 Button(action: {
@@ -42,7 +42,7 @@ struct TimerView: View {
                     Image(systemName: "arrow.counterclockwise.circle")
                         .resizable()
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.red)
+                        .foregroundColor(Theme.mainColor)
                 }
             }
         }

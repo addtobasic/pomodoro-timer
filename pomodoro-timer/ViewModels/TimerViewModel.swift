@@ -8,7 +8,7 @@
 import SwiftUI
 
 class TimerViewModel: ObservableObject {
-    @Published var timeString: String = ""
+    @Published var timeString: String = "25:00"
     @Published var isTimerRunning: Bool = false
     @Published var isRestart: Bool = false
     private var timerModel = TimerModel(timeRemaining: 0, timer: nil)
