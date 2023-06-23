@@ -24,33 +24,8 @@ struct TimerView: View {
                 .foregroundColor(Theme.mainColor)
                 .background(Theme.backgroundColor)
             
-            HStack {
-                Button(action: {
-                    if timerViewModel.isTimerRunning {
-                        timerViewModel.stopTimer()
-                    }
-                    else if timerViewModel.isRestart {
-                        timerViewModel.restartTimer()
-                    }
-                    else {
-                        timerViewModel.startTimer()
-                    }
-                }) {
-                    Image(systemName: timerViewModel.isTimerRunning ? "stop.circle" : "play.circle")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(Theme.mainColor)
-                }
-                
-                Button(action: {
-                    timerViewModel.resetTimer()
-                }) {
-                    Image(systemName: "arrow.counterclockwise.circle")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(Theme.mainColor)
-                }
-            }
+            TimerButtonView()
+                .environmentObject(timerViewModel)
         }
     }
 }
