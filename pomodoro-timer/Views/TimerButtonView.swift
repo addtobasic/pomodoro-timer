@@ -13,7 +13,10 @@ struct TimerButtonView: View {
     var body: some View {
         HStack {
             Button(action: {
-                if timerViewModel.isTimerRunning {
+                if timerViewModel.isReset {
+                    timerViewModel.resetTimer()
+                }
+                else if timerViewModel.isTimerRunning {
                     timerViewModel.stopTimer()
                 }
                 else if timerViewModel.isRestart {

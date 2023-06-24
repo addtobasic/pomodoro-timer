@@ -6,17 +6,21 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 class TimerViewModel: ObservableObject {
     @Published var timeString: String = ""
     @Published var isTimerRunning: Bool = false
     @Published var isRestart: Bool = false
+    @Published var isReset: Bool = false
     var timerModel: TimerModel
     var initialDuration: Int
+    private var bellPlayer: AVPlayer
     
     init(duration: Int) {
         initialDuration = duration
         timerModel = TimerModel(timeRemaining: duration, timer: nil)
+        bellPlayer = AVPlayer.sharedBellPlayer
         timeString = getTimeString(from: duration)
     }
 
@@ -26,7 +30,11 @@ class TimerViewModel: ObservableObject {
                 self.timerModel.timeRemaining -= 1
                 self.timeString = self.getTimeString(from: self.timerModel.timeRemaining)
             } else {
-                self.stopTimer()
+                self.isReset = true
+                self.timerModel.timer?.invalidate()
+                self.timerModel.timer = nil
+                self.isTimerRunning = false
+                self.bellPlayer.playBellSound()
             }
         }
         
@@ -39,6 +47,8 @@ class TimerViewModel: ObservableObject {
         
         isTimerRunning = false
         isRestart = true
+        
+        bellPlayer.stopBellSound()
     }
     
     func restartTimer() {
@@ -50,6 +60,7 @@ class TimerViewModel: ObservableObject {
         timerModel.timeRemaining = initialDuration
         timeString = getTimeString(from: initialDuration)
         isRestart = false
+        isReset = false
     }
 
     private func getTimeString(from seconds: Int) -> String {
