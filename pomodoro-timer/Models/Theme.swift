@@ -10,4 +10,5 @@ import SwiftUI
 struct Theme {
     static let mainColor = Color("mainColor")
     static let backgroundColor = Color("backgroundColor")
+    static let textColor = Color("textColor")
 }

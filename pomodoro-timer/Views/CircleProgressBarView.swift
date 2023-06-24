@@ -37,7 +37,7 @@ struct CircleProgressBarView: View {
             Text(timerViewModel.timeString)
                 .font(.system(size: 54))
                 .padding()
-                .foregroundColor(Theme.mainColor)
+                .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
         }
         .frame(width: 300, height: 300)
