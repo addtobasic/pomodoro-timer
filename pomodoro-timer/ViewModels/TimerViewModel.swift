@@ -11,8 +11,8 @@ class TimerViewModel: ObservableObject {
     @Published var timeString: String = ""
     @Published var isTimerRunning: Bool = false
     @Published var isRestart: Bool = false
-    private var timerModel: TimerModel
-    private var initialDuration: Int
+    var timerModel: TimerModel
+    var initialDuration: Int
     
     init(duration: Int) {
         initialDuration = duration

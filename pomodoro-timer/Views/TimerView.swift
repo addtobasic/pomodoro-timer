@@ -18,14 +18,17 @@ struct TimerView: View {
 
     var body: some View {
         VStack {
-            Text(timerViewModel.timeString)
-                .font(.largeTitle)
-                .padding()
-                .foregroundColor(Theme.mainColor)
-                .background(Theme.backgroundColor)
-            
+            CircleProgressBarView()
+                .environmentObject(timerViewModel)
             TimerButtonView()
                 .environmentObject(timerViewModel)
+                .padding(.top, 20)
         }
+    }
+}
+
+struct TimerView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimerView(duration: 1500)
     }
 }

@@ -27,6 +27,7 @@ struct TimerButtonView: View {
                     .resizable()
                     .frame(width: 50, height: 50)
                     .foregroundColor(Theme.mainColor)
+                    .padding(.trailing, 5)
             }
             
             Button(action: {
@@ -36,6 +37,7 @@ struct TimerButtonView: View {
                     .resizable()
                     .frame(width: 50, height: 50)
                     .foregroundColor(Theme.mainColor)
+                    .padding(.leading, 5)
             }
         }
     }

@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         HStack{
             TimerView(duration: 1500)
-                .navigationTitle("Timer App")
+                .navigationTitle("Timｇer App")
         }
     }
 }
