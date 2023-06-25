@@ -24,21 +24,21 @@ struct CircleProgressBarView: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(lineWidth: 12)
+                .stroke(lineWidth: 16)
                 .opacity(0.3)
                 .foregroundColor(Color.gray)
             
             Circle()
                 .trim(from: 0, to: CGFloat(reversedProgress))
-                .stroke(style: StrokeStyle(lineWidth: 12, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: 16, lineCap: .round))
                 .foregroundColor(Theme.mainColor)
                 .rotationEffect(.degrees(-90))
             
             Text(timerViewModel.timeString)
-                .font(.system(size: 54))
+                .font(.system(size: 54, design: .monospaced))
+                .fontWeight(.medium)
                 .padding()
                 .foregroundColor(Theme.textColor)
-                .background(Theme.backgroundColor)
         }
         .frame(width: 300, height: 300)
     }
