@@ -11,36 +11,73 @@ struct TimerButtonView: View {
     @EnvironmentObject var timerViewModel: TimerViewModel
 
     var body: some View {
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass
+        @Environment(\.verticalSizeClass) var verticalSizeClass
+        
         HStack {
-            Button(action: {
-                if timerViewModel.isReset {
+            if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+                Button(action: {
+                    if timerViewModel.isReset {
+                        timerViewModel.resetTimer()
+                    }
+                    else if timerViewModel.isTimerRunning {
+                        timerViewModel.stopTimer()
+                    }
+                    else if timerViewModel.isRestart {
+                        timerViewModel.restartTimer()
+                    }
+                    else {
+                        timerViewModel.startTimer()
+                    }
+                }) {
+                    Image(systemName: timerViewModel.isTimerRunning ? "pause.circle" : "play.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Theme.mainColor)
+                        .padding(.trailing, 5)
+                }
+                
+                Button(action: {
                     timerViewModel.resetTimer()
+                }) {
+                    Image(systemName: "arrow.counterclockwise.circle")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Theme.mainColor)
+                        .padding(.leading, 5)
                 }
-                else if timerViewModel.isTimerRunning {
-                    timerViewModel.stopTimer()
-                }
-                else if timerViewModel.isRestart {
-                    timerViewModel.restartTimer()
-                }
-                else {
-                    timerViewModel.startTimer()
-                }
-            }) {
-                Image(systemName: timerViewModel.isTimerRunning ? "pause.circle" : "play.circle")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(Theme.mainColor)
-                    .padding(.trailing, 5)
             }
-            
-            Button(action: {
-                timerViewModel.resetTimer()
-            }) {
-                Image(systemName: "arrow.counterclockwise.circle")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(Theme.mainColor)
-                    .padding(.leading, 5)
+            else {
+                Button(action: {
+                    if timerViewModel.isReset {
+                        timerViewModel.resetTimer()
+                    }
+                    else if timerViewModel.isTimerRunning {
+                        timerViewModel.stopTimer()
+                    }
+                    else if timerViewModel.isRestart {
+                        timerViewModel.restartTimer()
+                    }
+                    else {
+                        timerViewModel.startTimer()
+                    }
+                }) {
+                    Image(systemName: timerViewModel.isTimerRunning ? "pause.circle" : "play.circle")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                        .foregroundColor(Theme.mainColor)
+                        .padding(.trailing, 7.5)
+                }
+                
+                Button(action: {
+                    timerViewModel.resetTimer()
+                }) {
+                    Image(systemName: "arrow.counterclockwise.circle")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                        .foregroundColor(Theme.mainColor)
+                        .padding(.leading, 7.5)
+                }
             }
         }
     }

@@ -17,12 +17,22 @@ struct TimerView: View {
     }
 
     var body: some View {
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass
+        @Environment(\.verticalSizeClass) var verticalSizeClass
+        
         VStack {
             CircleProgressBarView()
                 .environmentObject(timerViewModel)
-            TimerButtonView()
-                .environmentObject(timerViewModel)
-                .padding(.top, 20)
+            if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+                TimerButtonView()
+                    .environmentObject(timerViewModel)
+                    .padding(.top, 20)
+            }
+            else {
+                TimerButtonView()
+                    .environmentObject(timerViewModel)
+                    .padding(.top, 30)
+            }
         }
     }
 }
