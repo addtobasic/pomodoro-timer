@@ -17,13 +17,10 @@ struct TimerView: View {
     }
 
     var body: some View {
-        @Environment(\.horizontalSizeClass) var horizontalSizeClass
-        @Environment(\.verticalSizeClass) var verticalSizeClass
-        
         VStack {
             CircleProgressBarView()
                 .environmentObject(timerViewModel)
-            if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+            if DeviceSize.isPhone {
                 TimerButtonView()
                     .environmentObject(timerViewModel)
                     .padding(.top, 20)

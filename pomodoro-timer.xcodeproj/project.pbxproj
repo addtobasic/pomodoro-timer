@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1386F52A4B0089001A2965 /* DeviceSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1386F42A4B0089001A2965 /* DeviceSize.swift */; };
 		DB4DD1B62A433276004C247B /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4DD1B52A433276004C247B /* TimerModel.swift */; };
 		DB4DD1B82A433451004C247B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4DD1B72A433451004C247B /* TimerView.swift */; };
 		DB4DD1BB2A433737004C247B /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4DD1BA2A433737004C247B /* TimerViewModel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB1386F42A4B0089001A2965 /* DeviceSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSize.swift; sourceTree = "<group>"; };
 		DB4DD1B52A433276004C247B /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		DB4DD1B72A433451004C247B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		DB4DD1BA2A433737004C247B /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				DB4DD1B52A433276004C247B /* TimerModel.swift */,
 				DB4DD1BC2A454A55004C247B /* Theme.swift */,
 				DB746EF82A470F7C00B2BDB2 /* AVPlayer+Bell.swift */,
+				DB1386F42A4B0089001A2965 /* DeviceSize.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				DB80B8172A45846E000D54B8 /* TimerButtonView.swift in Sources */,
 				DB80B8192A459B05000D54B8 /* CircleProgressBarView.swift in Sources */,
 				DB4DD1B82A433451004C247B /* TimerView.swift in Sources */,
+				DB1386F52A4B0089001A2965 /* DeviceSize.swift in Sources */,
 				DBCC1F782A3F1B5A00C617D5 /* pomodoro_timerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

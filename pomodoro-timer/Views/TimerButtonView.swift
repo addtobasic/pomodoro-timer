@@ -11,11 +11,8 @@ struct TimerButtonView: View {
     @EnvironmentObject var timerViewModel: TimerViewModel
 
     var body: some View {
-        @Environment(\.horizontalSizeClass) var horizontalSizeClass
-        @Environment(\.verticalSizeClass) var verticalSizeClass
-        
         HStack {
-            if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+            if DeviceSize.isPhone {
                 Button(action: {
                     if timerViewModel.isReset {
                         timerViewModel.resetTimer()

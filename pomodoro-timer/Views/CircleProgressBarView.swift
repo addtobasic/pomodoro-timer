@@ -22,10 +22,7 @@ struct CircleProgressBarView: View {
     }
     
     var body: some View {
-        @Environment(\.horizontalSizeClass) var horizontalSizeClass
-        @Environment(\.verticalSizeClass) var verticalSizeClass
-        
-        if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+        if DeviceSize.isPhone {
             ZStack {
                 Circle()
                     .stroke(lineWidth: 16)
