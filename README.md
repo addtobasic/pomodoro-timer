@@ -1,6 +1,8 @@
 # pomodoro-timer
 
-ポモドーロテクニック専用のシンプルなタイマーアプリ
+<img src="./img//pomodoro-timer-logo.jpg" width="300">
+
+[ポモドーロテクニック](https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%A2%E3%83%89%E3%83%BC%E3%83%AD%E3%83%BB%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF)専用のシンプルなタイマーアプリ
 
 ## iPhone
 <img src="./img//pomodoro-timer-iphone.png" width="500">
