@@ -16,3 +16,6 @@
 - Version: 5.8.1
 - Xcode: 14.3.1
 - Architecture: MVVM
+
+## Reference
+Resources/bell.mp3の音源は[OtoLogic](https://otologic.jp/free/license.html)から使わせていただきました.
